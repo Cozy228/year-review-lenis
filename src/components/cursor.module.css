@@ -1,0 +1,43 @@
+/* 
+ * Cursor Component
+ * Migrated from cursor.module.scss to Tailwind CSS v4
+ */
+
+.container {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+@media (hover: none) {
+  .container {
+    display: none;
+  }
+}
+
+.container .cursor {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
+  border: 0.5333333333vw solid var(--pink);
+  width: 40px;
+  height: 40px;
+  opacity: 0.4;
+  transition: transform 600ms var(--ease-out-expo);
+}
+
+@media (min-width: 800px) {
+  .container .cursor {
+    border: 0.1388888889vw solid var(--pink);
+  }
+}
+
+.container .cursor.pointer {
+  transform: translate(-50%, -50%) scale(0.5);
+}
+

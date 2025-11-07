@@ -1,0 +1,6 @@
+/* 
+ * 注意：Tailwind v4 的 @apply 只在这个文件链中生效
+ * CSS Modules 中的 @apply 不会被处理！
+ */
+@import "tailwindcss";
+

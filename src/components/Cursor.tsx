@@ -1,7 +1,7 @@
 import cn from 'clsx'
 import gsap from 'gsap'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import s from './cursor.module.scss'
+import s from './cursor.module.css'
 
 export const Cursor = () => {
   const cursor = useRef<HTMLDivElement>(null)

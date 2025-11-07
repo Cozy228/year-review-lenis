@@ -1,0 +1,111 @@
+/* 
+ * Modal Component
+ * Migrated from modal.module.scss to Tailwind CSS v4
+ */
+
+.modal {
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  position: fixed !important;
+  inset: 0;
+  z-index: 100;
+  color: var(--theme-secondary);
+}
+
+.modal::before {
+  position: absolute;
+  content: '';
+  inset: 0;
+  background-color: var(--theme-secondary);
+  opacity: 0.5;
+  backdrop-filter: blur(10px);
+}
+
+.modal .content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--theme-primary);
+  padding: 10.6666666667vw 5.3333333333vw;
+  grid-column: 1 / -1;
+  justify-content: space-between;
+  gap: 10.6666666667vw;
+  border: 1px solid var(--theme-contrast);
+}
+
+@media (min-width: 800px) {
+  .modal .content {
+    grid-column: 5 / -5;
+    gap: 2.7777777778vw;
+    padding: 2.7777777778vw 1.3888888889vw;
+  }
+}
+
+.modal .content .close {
+  position: absolute;
+  top: 5.3333333333vw;
+  right: 5.3333333333vw;
+  width: 5.3333333333vw;
+  height: 5.3333333333vw;
+}
+
+@media (min-width: 800px) {
+  .modal .content .close {
+    top: 1.3888888889vw;
+    right: 1.3888888889vw;
+    width: 1.3888888889vw;
+    height: 1.3888888889vw;
+  }
+}
+
+.modal .content .close::before,
+.modal .content .close::after {
+  position: absolute;
+  content: '';
+  height: 1px;
+  width: 100%;
+  background-color: var(--theme-secondary);
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.modal .content .close::before {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.modal .content .close::after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.modal .content .text {
+  padding-top: 5.3333333333vw;
+}
+
+@media (min-width: 800px) {
+  .modal .content .text {
+    padding-top: 1.3888888889vw;
+  }
+}
+
+.modal::before,
+.modal .content {
+  transition-duration: 1.2s;
+  transition-timing-function: var(--ease-out-expo);
+  transition-property: opacity, transform;
+}
+
+.modal:not(.active) {
+  pointer-events: none;
+}
+
+.modal:not(.active)::before {
+  opacity: 0;
+}
+
+.modal:not(.active) .content {
+  opacity: 0;
+  transform: scale(0.9);
+}
+

@@ -1,7 +1,7 @@
 import cn from 'clsx'
 import { Link } from './Link'
 import { CSSProperties, ReactNode, MouseEvent } from 'react'
-import s from './button.module.scss'
+import s from './button.module.css'
 
 // Import arrow SVG as a component - Vite handles this via SVGR plugin or manual import
 // For now, we'll use a simple inline SVG

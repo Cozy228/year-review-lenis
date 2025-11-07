@@ -3,7 +3,7 @@ import { clamp, mapRange } from '@/utils/math'
 import { useStore } from '@/store'
 import { useEffect, useRef, useState, MouseEvent } from 'react'
 import { useWindowSize } from 'react-use'
-import s from './scrollbar.module.scss'
+import s from './scrollbar.module.css'
 
 export function Scrollbar() {
   const progressBar = useRef<HTMLDivElement>(null)

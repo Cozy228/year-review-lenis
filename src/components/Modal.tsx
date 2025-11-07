@@ -1,5 +1,5 @@
 import { Button } from './Button'
-import s from './modal.module.scss'
+import s from './modal.module.css'
 import cn from 'clsx'
 import { useEffect, useState, MouseEvent } from 'react'
 import { useStore } from '@/store'

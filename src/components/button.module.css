@@ -1,0 +1,180 @@
+/* 
+ * Button Component
+ * Migrated from button.module.scss to Tailwind CSS v4
+ */
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  font-weight: 900;
+  font-family: var(--font-roboto);
+  grid-template-columns: 3.3333333333vw 1fr;
+  user-select: none;
+  line-height: 200%;
+  font-size: 3.7333333333vw;
+  color: var(--black);
+  text-align: center;
+}
+
+@media (min-width: 800px) {
+  .button {
+    font-size: 0.9722222222vw;
+  }
+}
+
+.button .text {
+  position: relative;
+  flex-grow: 1;
+  z-index: 10;
+}
+
+.button .text .visible,
+.button .text .hidden {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+@media (min-width: 800px) {
+  .button .text .visible,
+  .button .text .hidden {
+    padding: 0 1.6666666667vw;
+  }
+}
+
+.button .text .visible {
+  position: relative;
+  transition: transform 600ms var(--ease-out-expo),
+    opacity 600ms var(--ease-out-expo);
+  transform: scaleY(1);
+  transform-origin: bottom;
+}
+
+.button .text .hidden {
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 600ms var(--ease-out-expo),
+    opacity 400ms var(--ease-out-expo);
+}
+
+.button .text .hidden .arrow {
+  transform: translate(-50%, 50%);
+}
+
+.button::after,
+.button::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: '';
+  width: 100%;
+  height: 100%;
+}
+
+.button::before {
+  background-color: var(--theme-contrast);
+}
+
+.button::after {
+  transform: scaleY(0);
+  background-color: var(--theme-secondary);
+  z-index: 0;
+  transition: transform 600ms var(--ease-out-expo);
+  transform-origin: top;
+}
+
+.button .icon {
+  display: flex;
+  aspect-ratio: 1 / 1;
+  transition: border-color 600ms var(--ease-out-expo);
+  width: 12.8000000000vw;
+  z-index: 10;
+  padding: 3.2000000000vw;
+  background-color: var(--theme-primary);
+  border: 1px solid var(--pink);
+}
+
+@media (min-width: 800px) {
+  .button .icon {
+    width: 3.3333333333vw;
+    padding: 0.8333333333vw;
+  }
+}
+
+.button .icon svg {
+  color: var(--theme-secondary);
+  margin: auto;
+  transition: color 600ms var(--ease-out-expo);
+  background-color: var(--theme-primary);
+  width: 6.4000000000vw;
+  height: 6.4000000000vw;
+}
+
+@media (min-width: 800px) {
+  .button .icon svg {
+    width: 1.6666666667vw;
+    height: 1.6666666667vw;
+  }
+}
+
+.button .arrow {
+  position: relative;
+  z-index: 10;
+  aspect-ratio: 1 / 1;
+  width: 2.6666666667vw;
+  margin-left: 4.2666666667vw;
+  transition: transform 600ms var(--ease-out-expo);
+}
+
+@media (min-width: 800px) {
+  .button .arrow {
+    width: 0.6944444444vw;
+    margin-left: 1.1111111111vw;
+  }
+}
+
+@media (hover: hover) {
+  .button:hover {
+    color: var(--theme-primary);
+  }
+
+  .button:hover::after {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+
+  .button:hover .text .visible {
+    transform: scaleY(0);
+    opacity: 0;
+    transform-origin: top;
+  }
+
+  .button:hover .text .visible .arrow {
+    transform: translate(50%, -50%);
+  }
+
+  .button:hover .text .hidden {
+    transform: scaleY(1);
+    transform-origin: bottom;
+    opacity: 1;
+  }
+
+  .button:hover .text .hidden .arrow {
+    transform: translate(0, 0);
+  }
+
+  .button:hover .icon {
+    border: 1px solid var(--theme-secondary);
+  }
+}
+

@@ -1,0 +1,17 @@
+/* 
+ * Layout Component
+ * Migrated from layout.module.scss to Tailwind CSS v4
+ */
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--theme-primary);
+  color: var(--theme-secondary);
+  min-height: 100vh;
+}
+
+.layout .main {
+  flex-grow: 1;
+}
+

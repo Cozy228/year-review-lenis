@@ -1,0 +1,46 @@
+/* 
+ * HorizontalSlides Component
+ * Migrated from horizontal-slides.module.scss to Tailwind CSS v4
+ */
+
+.wrapper .inner {
+  overflow: hidden;
+  display: flex;
+}
+
+.wrapper .inner .overflow {
+  display: flex;
+}
+
+.wrapper .inner .overflow > * {
+  flex-shrink: 0;
+}
+
+@media (max-width: 800px) {
+  .wrapper .inner {
+    width: 100.0000000000vw;
+  }
+}
+
+@media (min-width: 800px) {
+  .wrapper .inner {
+    position: sticky;
+    --height: 30.5555555556vw;
+    top: calc((100vh - var(--height)) / 2);
+  }
+}
+
+@media (max-width: 800px) {
+  .wrapper .inner .cards {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+    width: 100%;
+  }
+
+  .wrapper .inner .cards > * {
+    margin-bottom: 8.5333333333vw;
+  }
+}
+

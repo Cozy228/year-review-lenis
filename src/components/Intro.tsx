@@ -2,7 +2,7 @@ import { useMediaQuery } from '@darkroom.engineering/hamo'
 import cn from 'clsx'
 import { useStore } from '@/store'
 import { useEffect, useState, TransitionEvent } from 'react'
-import s from './intro.module.scss'
+import s from './intro.module.css'
 
 interface SVGProps {
   isLoaded?: boolean

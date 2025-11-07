@@ -1,7 +1,7 @@
 import cn from 'clsx'
 import { Button } from './Button'
 import { Link } from './Link'
-import s from './footer.module.scss'
+import s from './footer.module.css'
 
 const GitHubIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

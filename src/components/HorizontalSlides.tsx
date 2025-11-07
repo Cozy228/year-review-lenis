@@ -6,7 +6,7 @@ import { clamp, mapRange } from '@/utils/math'
 import { useEffect, useRef, useState, ReactNode } from 'react'
 import { useWindowSize } from 'react-use'
 
-import s from './horizontal-slides.module.scss'
+import s from './horizontal-slides.module.css'
 
 interface HorizontalSlidesProps {
   children: ReactNode

@@ -8,7 +8,7 @@ import { Footer } from './Footer'
 import Lenis from 'lenis'
 import { useStore } from '@/store'
 import { useEffect, useState, ReactNode } from 'react'
-import s from './layout.module.scss'
+import s from './layout.module.css'
 
 interface LayoutProps {
   children: ReactNode

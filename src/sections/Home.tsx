@@ -16,7 +16,7 @@ import { useStore } from '@/store'
 import { useEffect, useRef, useState, ReactNode } from 'react'
 import { useIntersection, useWindowSize } from 'react-use'
 import { WebGL } from '@/components/WebGL'
-import s from './home.module.scss'
+import s from './home.module.css'
 
 // GitHub and Sponsor icons
 const GitHubIcon = () => (

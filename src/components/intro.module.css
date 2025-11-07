@@ -1,0 +1,62 @@
+/* 
+ * Intro Component
+ * Migrated from intro.module.scss to Tailwind CSS v4
+ */
+
+.wrapper {
+  position: fixed;
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--pink);
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+@media (max-width: 800px) {
+  .wrapper {
+    display: none;
+  }
+}
+
+.wrapper.out {
+  transition: transform 1500ms var(--ease-out-expo);
+  transform: translate3d(0, -100%, 0);
+  transition-delay: calc(1500ms + 0ms);
+}
+
+.wrapper .start {
+  transform: translate3d(0, calc(var(--index) * 5% + 100%), 0);
+}
+
+.wrapper .relative {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.0833333333vw 2.2569444444vw;
+  transition: transform 1500ms var(--ease-out-expo);
+  transform: translate3d(0, 100.0000000000vh, 0);
+  transition-delay: calc(1500ms + 0ms);
+  height: 100%;
+}
+
+.wrapper .show {
+  transition: transform 1500ms var(--ease-out-expo);
+  transition-delay: calc(var(--index) * 75ms);
+  transform: translate3d(0, 0, 0);
+}
+
+@media (min-width: 800px) {
+  .translate {
+    transform: translate3d(0, -100%, 0);
+    transition: transform 1500ms var(--ease-out-expo);
+  }
+}
+
+@media (max-width: 800px) {
+  .mobile {
+    transform: translate3d(0, -105%, 0);
+  }
+}
+

@@ -1,6 +1,6 @@
 import cn from 'clsx'
 import { Link } from './Link'
-import s from './list-item.module.scss'
+import s from './list-item.module.css'
 
 interface ListItemProps {
   className?: string

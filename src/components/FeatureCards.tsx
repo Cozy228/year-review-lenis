@@ -8,7 +8,7 @@ import { clamp, mapRange } from '@/utils/math'
 import { useRef, useState, ReactNode } from 'react'
 import { useWindowSize } from 'react-use'
 
-import s from './feature-cards.module.scss'
+import s from './feature-cards.module.css'
 
 const cards: { text: ReactNode }[] = [
   { text: 'Run scroll in the main thread' },

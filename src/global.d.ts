@@ -1,6 +1,17 @@
 import type Lenis from 'lenis'
 
-// SCSS Modules
+// CSS Modules
+declare module '*.module.css' {
+  const classes: { [key: string]: string }
+  export default classes
+}
+
+declare module '*.css' {
+  const content: { [key: string]: string }
+  export default content
+}
+
+// Legacy SCSS Modules (for compatibility during migration)
 declare module '*.module.scss' {
   const classes: { [key: string]: string }
   export default classes

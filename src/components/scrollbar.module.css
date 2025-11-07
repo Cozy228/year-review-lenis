@@ -1,0 +1,29 @@
+/* 
+ * Scrollbar Component
+ * Migrated from scrollbar.module.scss to Tailwind CSS v4
+ */
+
+.scrollbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 0;
+}
+
+@media (hover: none) {
+  .scrollbar {
+    display: none;
+  }
+}
+
+.scrollbar .inner {
+  position: relative;
+  width: 100%;
+  height: 0.2777777778vw;
+  background-color: var(--pink);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+

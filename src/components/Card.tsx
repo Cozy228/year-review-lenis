@@ -1,6 +1,6 @@
 import cn from 'clsx'
 import { ReactNode, CSSProperties } from 'react'
-import s from './card.module.scss'
+import s from './card.module.css'
 
 interface CardProps {
   number?: number

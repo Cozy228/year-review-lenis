@@ -1,0 +1,93 @@
+/* 
+ * CSS Variables Configuration
+ * These must be in :root to be accessible by CSS Modules
+ */
+
+:root {
+  /* ============================================
+   * COLORS
+   * ============================================ */
+  
+  --white: rgb(239, 239, 239);
+  --white-transparent: rgba(239, 239, 239, 0);
+  --grey: rgb(176, 176, 176);
+  --grey-transparent: rgba(176, 176, 176, 0);
+  --black: rgb(0, 0, 0);
+  --black-transparent: rgba(0, 0, 0, 0);
+  --pink: rgb(255, 152, 162);
+  --pink-transparent: rgba(255, 152, 162, 0);
+  
+  
+  /* ============================================
+   * EASING FUNCTIONS
+   * ============================================ */
+  
+  --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  --ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  --ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+  --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+  --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+  --ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  
+  
+  /* ============================================
+   * LAYOUT SYSTEM (Mobile Default)
+   * ============================================ */
+  
+  --layout-columns-count: 6;
+  --layout-columns-gap: 6.4vw; /* 24px at 375px */
+  --layout-margin: 4.2666666667vw; /* 16px at 375px */
+  
+  /* Computed layout values */
+  --layout-width: calc(100vw - (2 * var(--layout-margin)));
+  --layout-column-width: calc(
+    (
+      var(--layout-width) - 
+      ((var(--layout-columns-count) - 1) * var(--layout-columns-gap))
+    ) / 
+    var(--layout-columns-count)
+  );
+}
+
+/* Desktop layout overrides */
+@media (min-width: 800px) {
+  :root {
+    --layout-columns-count: 12;
+    --layout-columns-gap: 1.6666666667vw; /* 24px at 1440px */
+    --layout-margin: 2.7777777778vw; /* 40px at 1440px */
+  }
+}
+
+/* Header height */
+:root {
+  --header-height: 15.4666666667vw; /* 58px at 375px */
+}
+
+@media (min-width: 800px) {
+  :root {
+    --header-height: 6.8055555556vw; /* 98px at 1440px */
+  }
+}
+
+/* ============================================
+ * KEYFRAMES ANIMATIONS
+ * ============================================ */
+
+@keyframes scale {
+  50% {
+    transform: scaleY(1.5);
+  }
+}
+
