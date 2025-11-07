@@ -11,17 +11,6 @@ declare module '*.css' {
   export default content
 }
 
-// Legacy SCSS Modules (for compatibility during migration)
-declare module '*.module.scss' {
-  const classes: { [key: string]: string }
-  export default classes
-}
-
-declare module '*.scss' {
-  const content: { [key: string]: string }
-  export default content
-}
-
 // GLSL Shaders
 declare module '*.glsl' {
   const content: string
