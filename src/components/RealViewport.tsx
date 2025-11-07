@@ -1,24 +1,35 @@
 import { useEffect } from 'react'
 
-export default function RealViewport() {
+export const RealViewport = () => {
   useEffect(() => {
-    const onResize = () => {
-      const vh = window.innerHeight * 0.01
-      const svh = document.documentElement.clientHeight * 0.01
+    // https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+    function onWindowResize() {
+      document.documentElement.style.setProperty(
+        '--vh',
+        window.innerHeight * 0.01 + 'px'
+      )
 
-      document.documentElement.style.setProperty('--vh', `${vh}px`)
-      document.documentElement.style.setProperty('--dvh', `${vh}px`)
-      document.documentElement.style.setProperty('--svh', `${svh}px`)
+      document.documentElement.style.setProperty(
+        '--dvh',
+        window.innerHeight * 0.01 + 'px'
+      )
+
+      document.documentElement.style.setProperty(
+        '--svh',
+        document.documentElement.clientHeight * 0.01 + 'px'
+      )
+
       document.documentElement.style.setProperty('--lvh', '1vh')
     }
 
-    window.addEventListener('resize', onResize, { passive: true })
-    onResize()
+    window.addEventListener('resize', onWindowResize, false)
+    onWindowResize()
 
     return () => {
-      window.removeEventListener('resize', onResize)
+      window.removeEventListener('resize', onWindowResize, false)
     }
   }, [])
 
   return null
 }
+

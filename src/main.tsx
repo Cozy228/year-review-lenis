@@ -1,44 +1,60 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import { StrictMode, useEffect } from 'react'
+import { createRoot } from 'react-dom/client'
 import Tempus from '@darkroom.engineering/tempus'
 import { gsap } from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
-import App from './App.tsx'
-import './styles/index.css'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import App from './App'
+import './styles/global.scss'
+import { RealViewport } from './components/RealViewport'
+import { useScroll } from './hooks/useScroll'
+import { useStore } from './store'
 
-let detachTempus: void | (() => void)
+// Setup GSAP and ScrollTrigger
+gsap.registerPlugin(ScrollTrigger)
+ScrollTrigger.defaults({ 
+  markers: import.meta.env.DEV 
+})
 
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger)
-  ScrollTrigger.defaults({ markers: import.meta.env.DEV })
+// Merge GSAP ticker with Tempus
+gsap.ticker.lagSmoothing(0)
+gsap.ticker.remove(gsap.updateRoot)
+Tempus.add((time: number) => {
+  gsap.updateRoot(time / 1000)
+}, 0)
 
-  gsap.ticker.lagSmoothing(0)
-  gsap.ticker.remove(gsap.updateRoot)
+function Root() {
+  const lenis = useStore(({ lenis }) => lenis)
 
-  detachTempus =
-    (Tempus.add as unknown as (
-      fn: (time: number) => void,
-      priority?: number
-    ) => (() => void) | void)(
-      (time) => {
-        gsap.updateRoot(time / 1000)
-      },
-      0
-    )
+  // Update ScrollTrigger on scroll
+  useScroll(() => {
+    ScrollTrigger.update()
+  })
 
-  if (import.meta.hot) {
-    import.meta.hot.dispose(() => {
-      if (typeof detachTempus === 'function') {
-        detachTempus()
-      }
+  useEffect(() => {
+    if (lenis) {
+      ScrollTrigger.refresh()
+      lenis?.start()
+    }
+  }, [lenis])
 
-      gsap.ticker.add(gsap.updateRoot)
-    })
-  }
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual'
+  }, [])
+
+  return (
+    <>
+      <RealViewport />
+      <App />
+    </>
+  )
 }
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-)
+const rootElement = document.getElementById('root')
+if (rootElement) {
+  createRoot(rootElement).render(
+    <StrictMode>
+      <Root />
+    </StrictMode>
+  )
+}
+

@@ -1,33 +1,31 @@
-import { useEffect, useRef, type DependencyList } from 'react'
-import { useLenisStore } from '../store'
-import type { LenisScrollEvent } from '../types/lenis'
+import { useStore } from '@/store'
+import { useEffect, DependencyList } from 'react'
+import type Lenis from 'lenis'
 
-export function useScroll(
-  callback: (event: LenisScrollEvent) => void,
-  deps: DependencyList = []
-) {
-  const lenis = useLenisStore((state) => state.lenis)
-  const savedCallback = useRef(callback)
+export interface LenisScrollEvent {
+  scroll: number
+  limit: number
+  velocity: number
+  direction: number
+  progress: number
+}
+
+export type ScrollCallback = (event: LenisScrollEvent) => void
+
+export function useScroll(callback: ScrollCallback, deps: DependencyList = []) {
+  const lenis = useStore(({ lenis }) => lenis)
 
   useEffect(() => {
-    savedCallback.current = callback
-  }, [callback])
+    if (!lenis) return
 
-  useEffect(() => {
-    if (!lenis) {
-      return undefined
-    }
-
-    const handler = (event: unknown) => {
-      savedCallback.current(event as LenisScrollEvent)
-    }
-
-    lenis.on('scroll', handler)
+    lenis.on('scroll', callback as (e: Lenis) => void)
+    // Trigger initial scroll event
+    // @ts-ignore - emit is private but needed for initialization
+    lenis.emit?.()
 
     return () => {
-      lenis.off('scroll', handler)
+      lenis.off('scroll', callback as (e: Lenis) => void)
     }
-    // Spread dependencies to allow granular re-subscription control.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lenis, ...deps])
+  }, [lenis, callback, ...deps])
 }
+
