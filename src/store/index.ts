@@ -69,7 +69,7 @@ export const useStore = create<StoreState>((set, get) => ({
   setIntroOut: (introOut) => set({ introOut }),
   theme: 'dark',
   setTheme: (theme) => set({ theme }),
-  isAuthorized: true,
+  isAuthorized: false,
   setIsAuthorized: (isAuthorized) => set({ isAuthorized }),
 }))
 

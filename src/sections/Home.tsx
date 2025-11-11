@@ -153,7 +153,7 @@ export default function Home() {
       {isAuthorized && (
         <>
           
-          <RethinkSection cardsRectRef={cardsRectRef} />
+          {/* <RethinkSection cardsRectRef={cardsRectRef} /> */}
           
           <SolutionSection 
             zoomRef={zoomRef}

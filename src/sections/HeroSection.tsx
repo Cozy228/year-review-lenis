@@ -79,7 +79,7 @@ export const HeroSection = ({ hasScrolled }: HeroSectionProps) => {
             icon={<GitHubIcon />}
             onClick={handleAuthorize}
           >
-            Assemble My {new Date().getFullYear()}
+            Connect & Generate {new Date().getFullYear()}
           </Button>
         )}
       </div>
