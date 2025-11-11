@@ -40,6 +40,10 @@ export interface StoreState {
   // Theme
   theme: 'light' | 'dark'
   setTheme: (theme: 'light' | 'dark') => void
+
+  // Authorization
+  isAuthorized: boolean
+  setIsAuthorized: (isAuthorized: boolean) => void
 }
 
 export const useStore = create<StoreState>((set, get) => ({
@@ -65,5 +69,7 @@ export const useStore = create<StoreState>((set, get) => ({
   setIntroOut: (introOut) => set({ introOut }),
   theme: 'dark',
   setTheme: (theme) => set({ theme }),
+  isAuthorized: true,
+  setIsAuthorized: (isAuthorized) => set({ isAuthorized }),
 }))
 

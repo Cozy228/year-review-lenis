@@ -22,7 +22,7 @@
   left: 50%;
   height: 100vw;
   width: 200vw;
-  background: radial-gradient(var(--pink), var(--pink-transparent) 70%);
+  background: radial-gradient(var(--color-accent), var(--color-accent-transparent) 70%);
   transform: translateX(-50%) translateY(50vh);
   opacity: 0.5;
 }
@@ -54,6 +54,11 @@
   height: calc(100 * var(--vh, 1vh));
   height: 100svh;
   margin-bottom: 42.6666666667vw;
+  background-image: radial-gradient(
+      22% 18% at 80% 88%,
+      rgba(93, 124, 255, 0.06),
+      transparent 70%
+    );
 }
 
 @media (max-width: 800px) {
@@ -75,7 +80,6 @@
 
 .hero .title {
   grid-column: 1 / -1;
-  margin-top: 8.0000000000vw;
   width: var(--layout-width);
 }
 
@@ -88,7 +92,6 @@
 @media (min-width: 800px) {
   .hero .title {
     position: absolute;
-    margin-top: 2.0833333333vw;
     top: 0;
     left: 2.5%;
   }
@@ -130,23 +133,37 @@
 @media (min-width: 800px) {
   .hero .sub {
     position: relative;
-    top: 27.4305555556vw;
+    top: 24.3055555556vw;
+    grid-column: 6 / span 7;
+  }
+}
+
+.hero .sub {
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+  grid-column: 2 / -1;
+  gap: 0.8333333333vw;
+}
+
+@media (min-width: 800px) {
+  .hero .sub {
+    position: relative;
+    top: 24.3055555556vw;
     grid-column: 6 / span 7;
   }
 }
 
 .hero .sub .subtitle {
-  margin-bottom: 2.1333333333vw;
-}
-
-@media (min-width: 800px) {
-  .hero .sub .subtitle {
-    margin-bottom: 0.8333333333vw;
-  }
+  color: rgba(85, 109, 250, 0.96);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-top: 0.65em;
+  margin-bottom: 0.3em;
 }
 
 .hero .sub .tm {
-  color: var(--grey);
+  color: #B9C5FF;
 }
 
 .hero .sub .tm span {
@@ -156,11 +173,13 @@
 .hero .bottom {
   overflow: hidden;
   width: 100%;
+  margin-top: -6.6666666667vw;
 }
 
 @media (min-width: 800px) {
   .hero .bottom {
     padding-bottom: 2.7777777778vw;
+    margin-top: -4.4444444444vw;
   }
 }
 
@@ -175,6 +194,7 @@
   text-transform: uppercase;
   font-family: var(--font-anton);
   line-height: 100%;
+  color: #D6DAFF;
 }
 
 @media (min-width: 800px) {
@@ -198,7 +218,7 @@
   top: 0;
   height: 100%;
   width: 0.1388888889vw;
-  background-color: var(--pink);
+  background-color: var(--color-accent);
   animation: scale 4s infinite;
   animation-play-state: paused;
   transform-origin: 50% 0;

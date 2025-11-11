@@ -170,30 +170,30 @@
 
 /* Theme classes */
 .theme-light {
-  --theme-primary: rgb(239, 239, 239);
-  --theme-secondary: rgb(0, 0, 0);
-  --theme-contrast: rgb(255, 152, 162);
-  --theme-primary-transparent: rgb(239 239 239 / 0);
-  --theme-secondary-transparent: rgb(0 0 0 / 0);
-  --theme-contrast-transparent: rgb(255 152 162 / 0);
+  --theme-primary: var(--white);
+  --theme-secondary: var(--black);
+  --theme-contrast: var(--color-accent);
+  --theme-primary-transparent: var(--white-transparent);
+  --theme-secondary-transparent: var(--black-transparent);
+  --theme-contrast-transparent: var(--color-accent-transparent);
 }
 
 .theme-dark {
-  --theme-primary: rgb(0, 0, 0);
-  --theme-secondary: rgb(239, 239, 239);
-  --theme-contrast: rgb(255, 152, 162);
-  --theme-primary-transparent: rgb(0 0 0 / 0);
-  --theme-secondary-transparent: rgb(239 239 239 / 0);
-  --theme-contrast-transparent: rgb(255 152 162 / 0);
+  --theme-primary: var(--black);
+  --theme-secondary: var(--white);
+  --theme-contrast: var(--color-accent);
+  --theme-primary-transparent: var(--black-transparent);
+  --theme-secondary-transparent: var(--white-transparent);
+  --theme-contrast-transparent: var(--color-accent-transparent);
 }
 
 .theme-contrast {
-  --theme-primary: rgb(255, 152, 162);
-  --theme-secondary: rgb(0, 0, 0);
-  --theme-contrast: rgb(239, 239, 239);
-  --theme-primary-transparent: rgb(255 152 162 / 0);
-  --theme-secondary-transparent: rgb(0 0 0 / 0);
-  --theme-contrast-transparent: rgb(239 239 239 / 0);
+  --theme-primary: var(--color-accent);
+  --theme-secondary: var(--black);
+  --theme-contrast: var(--white);
+  --theme-primary-transparent: var(--color-accent-transparent);
+  --theme-secondary-transparent: var(--black-transparent);
+  --theme-contrast-transparent: var(--white-transparent);
 }
 
 /* Layout utilities */

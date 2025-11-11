@@ -8,7 +8,7 @@
   overflow: hidden;
   height: 100vh;
   width: 100%;
-  background-color: var(--pink);
+  background-color: #0b1f4f;
   top: 0;
   left: 0;
   z-index: 1000;
@@ -30,15 +30,28 @@
   transform: translate3d(0, calc(var(--index) * 5% + 100%), 0);
 }
 
+.wrapper > div {
+  width: var(--layout-width);
+}
+
 .wrapper .relative {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 2.0833333333vw 2.2569444444vw;
   transition: transform 1500ms var(--ease-out-expo);
   transform: translate3d(0, 100.0000000000vh, 0);
   transition-delay: calc(1500ms + 0ms);
-  height: 100%;
+}
+
+@media (max-width: 800px) {
+  .wrapper > div {
+    height: 22.6666666667vw;
+  }
+}
+
+@media (min-width: 800px) {
+  .wrapper > div {
+    position: absolute;
+    top: 0;
+    left: 2.5%;
+  }
 }
 
 .wrapper .show {

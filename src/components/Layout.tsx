@@ -93,9 +93,8 @@ export function Layout({ children, className }: LayoutProps) {
       <Intro />
       <Cursor />
       <Scrollbar />
-      <Modal />
+      {/* <Modal /> */}
       <main className={s.main}>{children}</main>
-      <Footer />
     </div>
   )
 }

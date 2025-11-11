@@ -24,7 +24,7 @@
   position: absolute;
   transform: translate(-50%, -50%);
   border-radius: 100%;
-  border: 0.5333333333vw solid var(--pink);
+  border: 0.5333333333vw solid var(--color-accent);
   width: 40px;
   height: 40px;
   opacity: 0.4;
@@ -33,7 +33,7 @@
 
 @media (min-width: 800px) {
   .container .cursor {
-    border: 0.1388888889vw solid var(--pink);
+    border: 0.1388888889vw solid var(--color-accent);
   }
 }
 

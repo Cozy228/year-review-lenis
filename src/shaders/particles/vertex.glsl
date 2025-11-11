@@ -33,12 +33,17 @@ attribute float size;
 attribute float speed;
 attribute vec3 noise;
 attribute float scale;
+attribute float colorIndex;
+
+varying float vColorIndex;
 
 uniform float uTime;
 uniform float uScroll;
 uniform vec2 uResolution;
 
 void main() {
+  vColorIndex = colorIndex;
+
   vec4 modelPosition = modelMatrix * vec4(position, 1.0);
 
   modelPosition.x += snoise(vec2(noise.x, uTime * speed)) * scale;

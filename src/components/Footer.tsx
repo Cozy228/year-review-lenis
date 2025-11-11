@@ -30,7 +30,7 @@ export const Footer = () => {
           icon={<GitHubIcon />}
           href="https://github.com/sponsors/darkroomengineering"
         >
-          Let's build together
+          Download Report
         </Button>
       </div>
       <div className={cn(s.top, 'layout-block hide-on-desktop')}>
@@ -42,30 +42,31 @@ export const Footer = () => {
       </div>
       <div className={s.bottom}>
         <div className={s.links}>
-          <Link
+          Sources: GitHub · Jira · Jenkins · Sonar
+          {/* <Link
             className={cn(s.link, 'p-xs')}
             href="https://twitter.com/darkroomdevs"
-          >
-            Twitter
-          </Link>
-          <Link
-            className={cn(s.link, 'p-xs')}
-            href="https://github.com/darkroomengineering"
           >
             GitHub
           </Link>
           <Link
             className={cn(s.link, 'p-xs')}
+            href="https://github.com/darkroomengineering"
+          >
+            Jira
+          </Link>
+          <Link
+            className={cn(s.link, 'p-xs')}
             href="https://darkroom.engineering/"
           >
-            Website
+            Jenkins
           </Link>
           <Link className={cn(s.link, 'p-xs')} href="https://studiofreight.com">
-            Designed by Studio Freight
-          </Link>
+          © {new Date().getFullYear()}· Engineered Insight
+          </Link> */}
         </div>
         <p className={cn('p-xs', s.tm)}>
-          <span>©</span> {new Date().getFullYear()} darkroom.engineering
+           Made with ❤️ by Developers for Developers. 
         </p>
         <Button
           className={cn(s.cta, 'hide-on-desktop')}

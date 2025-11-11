@@ -8,14 +8,17 @@
    * COLORS
    * ============================================ */
   
+  /* Base colors */
   --white: rgb(239, 239, 239);
   --white-transparent: rgba(239, 239, 239, 0);
   --grey: rgb(176, 176, 176);
   --grey-transparent: rgba(176, 176, 176, 0);
   --black: rgb(0, 0, 0);
   --black-transparent: rgba(0, 0, 0, 0);
-  --pink: rgb(255, 152, 162);
-  --pink-transparent: rgba(255, 152, 162, 0);
+  
+  /* Semantic colors */
+  --color-accent: oklch(0.4628 0.3059 264.18);
+  --color-accent-transparent: oklch(0.4628 0.3059 264.18 / 0);
   
   
   /* ============================================

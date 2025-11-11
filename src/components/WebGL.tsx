@@ -95,6 +95,14 @@ function Particles({
     [count]
   )
 
+  const colorIndices = useMemo(
+    () =>
+      Float32Array.from(
+        Array.from({ length: count }, () => (Math.random() > 0.2 ? 0 : 1))
+      ),
+    [count]
+  )
+
   const material = useRef<ShaderMaterial>(null)
   const points = useRef<Points>(null)
 
@@ -103,8 +111,11 @@ function Particles({
       uTime: {
         value: 0,
       },
-      uColor: {
-        value: new Color('rgb(255, 207, 206)'),
+      uColorA: {
+        value: new Color('#8DA1FF'),
+      },
+      uColorB: {
+        value: new Color('#F8D59A'),
       },
       uScroll: {
         value: 0,
@@ -140,6 +151,7 @@ function Particles({
         <bufferAttribute attach="attributes-size" args={[sizes, 1]} />
         <bufferAttribute attach="attributes-speed" args={[speeds, 1]} />
         <bufferAttribute attach="attributes-scale" args={[scales, 1]} />
+        <bufferAttribute attach="attributes-colorIndex" args={[colorIndices, 1]} />
       </bufferGeometry>
       <shaderMaterial
         ref={material}
@@ -510,7 +522,7 @@ function Content() {
         size={150}
       />
 
-      <Arm />
+      {/* <Arm /> */}
     </>
   )
 }
