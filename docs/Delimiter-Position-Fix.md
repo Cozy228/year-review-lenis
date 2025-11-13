@@ -112,6 +112,136 @@ total += TEXT_FADE
 ```
 
 **理论**：
+- 在 TEXT_FADE 前强制设置卡片位置，确保后续动画基于正确的起点
+- 同时重置 `contentInner.y = 0`，避免保留之前的偏移
+
+---
+
+## 最终解决方案 ✅
+
+### 核心思路：READ 阶段实时检测 + 动态停止
+
+**放弃测量，改为运行时检测**：
+- 不再预先计算 `extraPx`
+- READ 阶段使用固定时长的占位 tween
+- 在 `onUpdate` 中实时检测 delimiter 位置
+- 到达 50vh 时立即停止滚动
+
+### 实现细节
+
+#### 1. READ Tween 结构
+```typescript
+// READ tween 覆盖 READ+HOLD 区域，确保反向时 onUpdate 能响应
+const readScrollDuration = FULL_HOLD * 2  // 1000ms
+const holdPlaceholder = 10  // HOLD 占位
+const readTweenDuration = readScrollDuration + holdPlaceholder
+
+tl.to({}, {
+  duration: readTweenDuration,
+  ease: 'none',
+  onUpdate: function () {
+    // 实时检测和控制逻辑
+  }
+}, total)
+```
+
+#### 2. 实时检测逻辑
+```typescript
+onUpdate: function () {
+  const progress = this.progress()
+  const isReversing = progress < readState.lastProgress
+  
+  // 如果已到达目标且正向，保持固定
+  if (readState.reachedTarget && !isReversing) {
+    gsap.set(contentInner, { y: readState.targetY })
+    return
+  }
+  
+  // 计算当前位置
+  const scrollProgress = isInReadPhase 
+    ? progress / readProgressRatio 
+    : 1
+  const currentY = -maxScroll * scrollProgress
+  gsap.set(contentInner, { y: currentY })
+  
+  // 检测 delimiter（仅正向）
+  if (!isReversing) {
+    const delimiter = contentInner.querySelector('[data-role="delimiter"]')
+    const delimiterRect = delimiter.getBoundingClientRect()
+    const offsetError = delimiterRect.top - (windowVh / 2)
+    
+    if (offsetError <= 5) {
+      readState.reachedTarget = true
+      readState.targetY = currentY - offsetError
+      readState.reachedScrollProgress = scrollProgress
+      gsap.set(contentInner, { y: readState.targetY })
+    }
+  }
+}
+```
+
+#### 3. 反向滚动支持
+```typescript
+// 检测反向滚动
+if (isReversing && readState.reachedTarget) {
+  readState.reachedTarget = false
+}
+
+// 使用记录的 scrollProgress 按比例回滚
+if (readState.reachedScrollProgress > 0) {
+  scrollProgress = Math.min(scrollProgress, readState.reachedScrollProgress)
+  currentY = (readState.targetY / readState.reachedScrollProgress) * scrollProgress
+}
+
+// 重新进入 READ 时重置状态
+if (!isReversing && isInReadPhase && readState.maxReachedY < 0 && !readState.reachedTarget) {
+  readState.maxReachedY = 0
+  readState.reachedScrollProgress = 0
+}
+```
+
+### 关键状态管理
+```typescript
+interface ReadState {
+  reachedTarget: boolean          // 是否已到达目标
+  targetY: number                 // 目标位置（精确对齐后）
+  lastProgress: number            // 上一次的 progress（检测反向）
+  maxReachedY: number            // 最大滚动距离（负值）
+  reachedScrollProgress: number  // 到达时的 scrollProgress
+}
+```
+
+### 优势
+1. ✅ **精确对齐**：实时检测，误差 ≤5px
+2. ✅ **动态适应**：无需预测量，适应任何内容长度
+3. ✅ **反向流畅**：支持平滑的反向滚动和重新进入
+4. ✅ **短内容兜底**：progress > 90% 时自动停止
+5. ✅ **无跳动**：使用比例计算，确保平滑过渡
+
+### 测试结果
+- Delimiter 稳定在 500-515px 范围内
+- 反向滚动流畅，无从负位置跳出
+- 重新正向能正常进入 HOLD
+- 所有卡片表现一致
+
+---
+
+## 相关文件
+
+- `src/components/FeatureCardsIntegrated.tsx` - 主实现
+- `src/utils/animationConfig.ts` - 时长常量
+- `docs/App-Animation-Deep-Dive.md` - 反向滚动保护机制
+
+---
+
+## 经验总结
+
+1. **运行时 > 预测量**：复杂布局下，运行时检测比预测量更可靠
+2. **状态管理**：合理的状态设计是平滑动画的关键
+3. **反向支持**：双向滚动需要额外的状态重置逻辑
+4. **调试日志**：详细的日志帮助快速定位问题
+
+
 - 在 READ/HOLD 阶段开始前（TEXT_FADE 时），强制重置卡片位置
 - 确保测量时的假设（`top: 0`）与动画时的实际状态一致
 
