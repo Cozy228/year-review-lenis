@@ -210,60 +210,60 @@ export const FeatureCardsIntegrated = forwardRef<HTMLDivElement>((props, ref) =>
   const holdCorrectedRef = useRef<Record<number, boolean>>({})  // ✅ 记录哪些卡片已经纠正过
   const { width: vw, height: vh } = useWindowSize()
 
-  // Card data (与原 FeatureCards 一致)
+  // Card data - 2025 Developer Annual Review
   const cards: FeatureCard[] = [
     {
       id: 'c1',
       number: 1,
-      text: 'Run scroll in the main thread',
+      text: 'Collaboration & Contribution',
       body: generateBody(15, 30),
     },
     {
       id: 'c2',
       number: 2,
-      text: <>Lightweight<br />(under 4kb)</>,
+      text: <>The Pull Request<br />Ledger</>,
       body: generateBody(10, 20),
     },
     {
       id: 'c3',
       number: 3,
-      text: `Made for ${new Date().getFullYear()}+`,
+      text: 'Review Gravity',
       body: generateBody(12, 25),
     },
     {
       id: 'c4',
       number: 4,
-      text: 'Bring your own animation library',
+      text: 'Activity Heat & Rhythm',
       body: generateBody(15, 30),
     },
     {
       id: 'c5',
       number: 5,
-      text: 'CONTROL THE SCROLL EASING DURATION',
+      text: 'DELIVERY CADENCE',
       body: generateBody(10, 20),
     },
     {
       id: 'c6',
       number: 6,
-      text: 'Use any element as scroller',
+      text: 'Pipeline Temperature',
       body: generateBody(12, 25),
     },
     {
       id: 'c7',
       number: 7,
-      text: 'Enjoy horizontal + vertical support',
+      text: 'From Red to Green',
       body: generateBody(15, 30),
     },
     {
       id: 'c8',
       number: 8,
-      text: 'Feel free to use "position: sticky" again',
+      text: 'Quality in Motion',
       body: generateBody(10, 20),
     },
     {
       id: 'c9',
       number: 9,
-      text: 'touch support',
+      text: 'Maintainability Rising',
       body: generateBody(12, 25),
     },
   ]
@@ -868,9 +868,9 @@ export const FeatureCardsIntegrated = forwardRef<HTMLDivElement>((props, ref) =>
           <aside className={cn(s.title, s.titleOverlay)}>
             <p className="h3">
               <AppearTitle>
-                Lenis brings
+                Your Year
                 <br />
-                <span className="grey">the heat</span>
+                <span className="grey">in Code</span>
               </AppearTitle>
             </p>
           </aside>

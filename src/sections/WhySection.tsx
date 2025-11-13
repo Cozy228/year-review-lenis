@@ -11,49 +11,45 @@ export const WhySection = ({ whyRectRef }: WhySectionProps) => {
     <section className={s.why}>
       <div className="layout-grid">
         <h2 className={cn(s.sticky, 'h2')}>
-          <AppearTitle>Why smooth scroll?</AppearTitle>
+          <AppearTitle>Summary</AppearTitle>
         </h2>
         <aside className={s.features} ref={whyRectRef}>
           <div className={s.feature}>
             <p className="p">
-              We've heard all the reasons to not use smooth scroll. It feels
-              hacky. It's inaccessible. It's not performant. It's
-              over-engineered. And historically, those were all true. But we
-              like to imagine things as they could be, then build them. So,
-              why should you use smooth scroll?
+              Your 2025 Developer Annual Review distills a year of work into
+              actionable insights. From collaboration velocity to code quality,
+              from build stability to delivery cadence—every metric tells the
+              story of how you shipped, improved, and grew as a developer.
             </p>
           </div>
           <div className={s.feature}>
             <h3 className={cn(s.title, 'h4')}>
-              Create more immersive interfaces
+              Collaboration & Contribution
             </h3>
             <p className="p">
-              Unlock the creative potential and impact of your web
-              experiences. Smoothing the scroll pulls users into the flow of
-              the experience that feels so substantial that they forget
-              they're navigating a web page.
+              Track your pull request lifecycle, review response times, and
+              collaboration patterns. See who you build with and how your
+              teamwork drives momentum forward.
             </p>
           </div>
           <div className={s.feature}>
             <h3 className={cn(s.title, 'h4')}>
-              Normalize all your user inputs
+              Delivery & Pipeline Health
             </h3>
             <p className="p">
-              Give all your users the same (dope) experience whether they're
-              using trackpads, mouse wheels, or otherwise. With smooth scroll,
-              you control how silky, heavy, or responsive the experience
-              should be — no matter the input. Magic!
+              Monitor your cycle time, throughput, and build stability.
+              From ticket completion to green builds, measure the rhythm
+              of your delivery and identify bottlenecks.
             </p>
           </div>
           <div className={s.feature}>
             <h3 className={cn(s.title, 'h4')}>
-              Make your animations flawless
+              Quality & Maintainability
             </h3>
             <p className="p">
-              Synchronization with native scroll is not reliable. Those jumps
-              and delays with scroll-linked animations are caused by
-              multi-threading, where modern browsers run animations/effects
-              asynchronously with the scroll. Smooth scroll fixes this.
+              Watch your code coverage rise and technical debt fall.
+              Quality isn't just a number—it's the discipline that
+              compounds over time.
             </p>
           </div>
         </aside>

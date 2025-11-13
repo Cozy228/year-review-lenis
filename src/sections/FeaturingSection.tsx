@@ -14,16 +14,16 @@ export const FeaturingSection = ({ whiteRectRef, featuresRectRef }: FeaturingSec
       <div className={s.inner}>
         <div className={cn('layout-block', s.intro)}>
           <p className="p-l">
-            Lenis is an{' '}
+            Your Developer Annual Review aggregates data from{' '}
             <Link
               className="contrast semi-bold"
-              href="https://github.com/darkroomengineering/lenis"
+              href="https://github.com"
             >
-              open-source library
-            </Link>{' '}
-            built to standardize scroll experiences and sauce up websites with
-            butter-smooth navigation, all while using the platform and keeping
-            it accessible.
+              GitHub
+            </Link>
+            , Jira, Jenkins, and Sonar to paint a complete picture of your
+            development year—from collaboration patterns to code quality,
+            from delivery cadence to build stability.
           </p>
         </div>
       </div>

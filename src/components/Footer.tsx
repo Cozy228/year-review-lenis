@@ -17,12 +17,12 @@ export const Footer = () => {
     <footer className={cn('theme-light', s.footer)}>
       <div className={cn(s.top, 'layout-grid hide-on-mobile')}>
         <p className={cn(s['first-line'], 'h1')}>
-          Lenis is <br />
-          <span className="contrast">Open source</span>
+          Your Year <br />
+          <span className="contrast">Report</span>
         </p>
         <p className={cn(s['last-line'], 'h1')}>
-          & open to <span className="hide-on-desktop">&nbsp;</span> features{' '}
-          <br /> and sponsors
+          Ready to <span className="hide-on-desktop">&nbsp;</span> share{' '}
+          <br /> and celebrate
         </p>
         <Button
           className={s.cta}
@@ -35,9 +35,9 @@ export const Footer = () => {
       </div>
       <div className={cn(s.top, 'layout-block hide-on-desktop')}>
         <p className={cn(s['first-line'], 'h1')}>
-          Lenis is <br />
-          <span className="contrast">Open source</span>
-          <br /> & open to <br /> features and sponsors
+          Your Year <br />
+          <span className="contrast">In Review</span>
+          <br /> Ready to <br /> share and celebrate
         </p>
       </div>
       <div className={s.bottom}>
@@ -66,7 +66,7 @@ export const Footer = () => {
           </Link> */}
         </div>
         <p className={cn('p-xs', s.tm)}>
-           Made with ❤️ by Developers for Developers. 
+          Every data point, a decision well made. Collaboration, Delivery, Quality—now distilled.
         </p>
         <Button
           className={cn(s.cta, 'hide-on-desktop')}
@@ -74,7 +74,7 @@ export const Footer = () => {
           icon={<GitHubIcon />}
           href="https://github.com/sponsors/darkroomengineering"
         >
-          Let's build together
+          Download Report
         </Button>
       </div>
     </footer>

@@ -6,34 +6,34 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: 'Ibicash',
-    source: 'darkroom.engineering',
-    href: 'https://ibi.cash',
+    title: 'Rapid Reviewer',
+    source: 'First review < 2 hours',
+    href: 'javascript:void(0)',
   },
   {
-    title: 'Grand Theft Auto VI',
-    source: 'Rockstar Games',
-    href: 'https://www.rockstargames.com/VI',
+    title: 'Merge Maestro',
+    source: '100+ PRs merged',
+    href: 'javascript:void(0)',
   },
   {
-    title: 'Sculpting Harmony',
-    source: 'Resn',
-    href: 'https://gehry.getty.edu/',
+    title: 'Green Keeper',
+    source: '95%+ build success',
+    href: 'javascript:void(0)',
   },
   {
-    title: 'Microsoft Design',
-    source: 'Microsoft',
-    href: 'https://microsoft.design/',
+    title: 'Bug Hunter',
+    source: '50+ issues closed',
+    href: 'javascript:void(0)',
   },
   {
-    title: 'Deso',
-    source: 'Studio Freight',
-    href: 'https://deso.com',
+    title: 'Throughput Driver',
+    source: 'Consistent delivery',
+    href: 'javascript:void(0)',
   },
   {
-    title: 'Shopify Supply',
-    source: 'Shopify',
-    href: 'https://shopify.supply/',
+    title: 'Quality Riser',
+    source: 'Coverage +15%',
+    href: 'javascript:void(0)',
   },
 ]
 

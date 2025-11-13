@@ -28,9 +28,9 @@ export const InUseSection = ({ inUseRef, inuseRectRef, visible }: InUseSectionPr
         <aside className={s.title}>
           <p className="h3">
             <AppearTitle>
-              <span>Lenis</span>
+              <span>Badges</span>
               <br />
-              <span className="grey">in use</span>
+              <span className="grey">Earned</span>
             </AppearTitle>
           </p>
         </aside>
