@@ -5,6 +5,14 @@
 
 :root {
   /* ============================================
+   * FONTS
+   * ============================================ */
+  
+  --font-anton: "Anton", sans-serif;
+  --font-panchang: "Panchang", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
+  
+  /* ============================================
    * COLORS
    * ============================================ */
   
@@ -19,6 +27,10 @@
   /* Semantic colors */
   --color-accent: oklch(0.4628 0.3059 264.18);
   --color-accent-transparent: oklch(0.4628 0.3059 264.18 / 0);
+  
+  /* FeatureCards color palette */
+  --color-fg: #000;
+  --color-bg: rgba(239, 239, 239, 0.8);
   
   
   /* ============================================
@@ -62,6 +74,13 @@
     ) / 
     var(--layout-columns-count)
   );
+  
+  /* ============================================
+   * CARD DIMENSIONS
+   * ============================================ */
+  
+  --card-base-width: 520px;
+  --card-base-height: 340px;
 }
 
 /* Desktop layout overrides */
@@ -92,5 +111,38 @@
   50% {
     transform: scaleY(1.5);
   }
+}
+
+/* ============================================
+ * LENIS SMOOTH SCROLL SETUP
+ * ============================================ */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ============================================
+ * GSAP UTILITY CLASSES
+ * ============================================ */
+
+.is-visible {
+  visibility: visible !important;
 }
 
