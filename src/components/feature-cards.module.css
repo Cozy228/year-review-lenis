@@ -4,7 +4,8 @@
  */
 
 .features {
-  height: 1600vh;
+  /* height: 1600vh; */  /* 移除固定高度，改为由 JS 动态设置 */
+  min-height: 1600vh;     /* 确保最小高度，避免过短 */
 }
 
 @media (min-width: 800px) {
@@ -245,10 +246,11 @@
 }
 
 .sticky {
-  overflow: hidden;
+  overflow: visible;
   position: sticky;
   top: 0;
-  height: 100vh;
+  /* height: 100vh; */  /* ✅ 移除固定高度，让它能容纳后续的 sticky stage */
+  min-height: 100vh;     /* 保持最小高度 */
   padding: var(--layout-margin);
 }
 
@@ -256,3 +258,33 @@
   position: relative;
 }
 
+.fullBleed {
+  padding: 0;
+}
+
+.stageWrap {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.titleOverlay {
+  position: absolute;
+  top: var(--layout-margin);
+  right: var(--layout-margin);
+  left: var(--layout-margin);
+  pointer-events: none;
+  z-index: 5;
+}
+
+@media (max-width: 799px) {
+  .titleOverlay {
+    top: calc(var(--layout-margin) * 0.5);
+  }
+}

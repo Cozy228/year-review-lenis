@@ -4,6 +4,7 @@
 export const INTRO_GAP = 300;   // Blank scroll distance before entering stage
 export const APPEAR    = 1200;  // Bottom-right → center
 export const ZOOM      = 700;   // Center ↔ fullscreen
+export const ZOOM_BACK = 1100;  // Fullscreen → center (slightly longer for better easing)
 export const TEXT_FADE = 140;   // Content fade in/out (only visible in fullscreen)
 export const DOCK_MOVE = 1200;  // Center → Dock
 export const BETWEEN   = 220;   // Gap between cards

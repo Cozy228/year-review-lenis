@@ -1,6 +1,6 @@
 import cn from 'clsx'
 import { Link } from '@/components/Link'
-import { FeatureCards } from '@/components/FeatureCards'
+import { FeatureCardsIntegrated } from '@/components/FeatureCardsIntegrated'
 import s from './home.module.css'
 
 interface FeaturingSectionProps {
@@ -28,7 +28,7 @@ export const FeaturingSection = ({ whiteRectRef, featuresRectRef }: FeaturingSec
         </div>
       </div>
       <section ref={featuresRectRef}>
-        <FeatureCards />
+        <FeatureCardsIntegrated />
       </section>
     </section>
   )

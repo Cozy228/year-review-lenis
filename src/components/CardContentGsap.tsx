@@ -17,51 +17,48 @@ export const CardContentGsap = ({ number, text, body }: CardContentGsapProps) =>
   return (
     <>
       {/* ====== Layer 1: Cover (data-role="cover") ====== */}
-      {/* GSAP will fade this out during ZOOM phase (opacity: 1 → 0) */}
+      {/* 完全匹配原 Card 组件样式 (card.module.css) */}
       <div
         data-role="cover"
         style={{
           position: 'absolute',
           inset: '0',
           display: 'flex',
+          justifyContent: 'space-between',
           flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '1.5rem',
+          color: 'var(--theme-secondary)',
+          border: '1px solid rgba(0, 0, 0, 0.1)',
+          aspectRatio: '1 / 1',
+          // 响应式 padding：移动端 6.4vw，桌面端 1.67vw
+          padding: window.innerWidth < 800 ? '6.4vw' : '1.6666666667vw',
           backgroundColor: 'rgba(239, 239, 239, 0.8)',
-          backdropFilter: 'blur(8px)',
-          borderRadius: '1rem',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-          boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-          padding: '2rem',
+          backdropFilter: 'blur(5px)',
         }}
       >
-        {/* Number */}
+        {/* Number - 匹配 card.module.css .wrapper .number */}
         <p
           style={{
-            fontFamily: 'Anton, sans-serif',
-            fontSize: 'clamp(3rem, 14.93vw, 8rem)',
-            lineHeight: '0.9',
-            color: 'oklch(0.4628 0.3059 264.18)',
+            color: 'var(--theme-contrast)',
+            lineHeight: '90%',
+            // 响应式字体：移动端 14.93vw，桌面端 6.67vw
+            fontSize: window.innerWidth < 800 ? '14.9333333333vw' : '6.6666666667vw',
+            fontFamily: 'var(--font-anton)',
             margin: '0',
-            filter: 'drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1))',
           }}
         >
           {number.toString().padStart(2, '0')}
         </p>
         
-        {/* Text */}
+        {/* Text - 匹配 card.module.css .wrapper .text */}
         <p
           style={{
-            fontFamily: 'Panchang, sans-serif',
-            fontWeight: '700',
             textTransform: 'uppercase',
-            fontSize: 'clamp(1.25rem, 5.33vw, 3rem)',
-            lineHeight: '1.0',
-            color: '#000',
-            textAlign: 'center',
+            fontFamily: 'var(--font-panchang)',
+            fontWeight: '700',
+            lineHeight: '100%',
+            // 响应式字体：移动端 5.33vw，桌面端 1.94vw
+            fontSize: window.innerWidth < 800 ? '5.3333333333vw' : '1.9444444444vw',
             margin: '0',
-            filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))',
           }}
         >
           {text}
@@ -80,7 +77,7 @@ export const CardContentGsap = ({ number, text, body }: CardContentGsapProps) =>
           pointerEvents: 'none',
           backgroundColor: 'rgba(239, 239, 239, 0.8)',
           backdropFilter: 'blur(8px)',
-          borderRadius: '1rem',
+          borderRadius: '0',  // 移除圆角，匹配 cover 层
         }}
       >
         {/* ====== Layer 3: Scrollable Content (data-role="content-inner") ====== */}
@@ -93,7 +90,7 @@ export const CardContentGsap = ({ number, text, body }: CardContentGsapProps) =>
             right: '0',
             top: '0',
             willChange: 'transform',
-            padding: '1.75rem',
+            padding: '2rem 3rem',  // 上下 2rem，左右 3rem（确保有足够的边距但不会左侧空白过多）
           }}
         >
           {/* Title */}
@@ -125,10 +122,12 @@ export const CardContentGsap = ({ number, text, body }: CardContentGsapProps) =>
             </p>
           ))}
           
-          {/* Divider */}
+          {/* ✅ Delimiter - 标记内容底部，跟随 content-inner 滚动 */}
+          {/* extraPx 的计算会确保滚动结束时，delimiter 停在 50vh 位置 */}
           <hr 
+            data-role="delimiter"
             style={{ 
-              margin: '1.5rem 0',
+              margin: '1.5rem 3rem',
               borderWidth: '0 0 1px 0',
               borderStyle: 'solid',
               borderColor: 'oklch(0.4628 0.3059 264.18)',
@@ -136,8 +135,8 @@ export const CardContentGsap = ({ number, text, body }: CardContentGsapProps) =>
             }} 
           />
           
-          {/* Bottom space (important: ensures content can scroll to bottom) */}
-          <div style={{ height: '40vh' }} />
+          {/* 底部空白：为测量提供额外空间 */}
+          <div style={{ height: '20vh' }} />
         </div>
       </div>
     </>
