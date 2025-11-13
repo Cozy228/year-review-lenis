@@ -1,0 +1,40 @@
+/* src/app.css */
+/* Tailwind v4 入口 */
+@import "tailwindcss";
+
+/* 蓝色系主题与深蓝页面背景 */
+@theme {
+  /* 页面背景与文字 */
+  --color-bg: #081126;      /* 深蓝（全局背景） */
+  --color-fg: #eaf2ff;      /* 略偏蓝的高对比前景 */
+  --color-muted: #9bb8ff;   /* 次级文字蓝 */
+
+  /* 卡片边框与前景 */
+  --color-card-border: #1e3a8a; /* 蓝色边框（blue-800 附近） */
+  --color-cover-fg: #eaf2ff;    /* 封面前景（与正文一致） */
+
+  /* FPS 状态色（可留用） */
+  --color-fps-ok:   #22c55e;
+  --color-fps-warn: #f59e0b;
+  --color-fps-bad:  #ef4444;
+}
+
+/* 统一的卡片梯度（封面与正文同款） */
+:root {
+  /* 蓝色线性渐变：深 → 亮（避免 banding，含三段） */
+  --gradient-card: linear-gradient(
+    135deg,
+    #0b1e59 0%,
+    #1d4ed8 50%,
+    #60a5fa 100%
+  );
+}
+
+/* Lenis 基础 */
+html.lenis{ height:auto; }
+.lenis.lenis-smooth{ scroll-behavior:auto; }
+.lenis.lenis-smooth [data-lenis-prevent]{ overscroll-behavior:contain; }
+.lenis.lenis-stopped{ overflow:hidden; }
+
+/* GSAP 脚本用到的可见性开关（保持类名一致） */
+@utility is-visible { visibility: visible; }
